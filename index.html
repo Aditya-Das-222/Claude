@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Best Claude AI Tutorials on YT 🥶</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #070708;
+      --surface: #0e0e10;
+      --surface2: #161618;
+      --border: rgba(255,255,255,0.06);
+      --orange: #ff6b1a;
+      --orange2: #ff9d00;
+      --cyan: #00d4ff;
+      --text: #f0ede8;
+      --muted: #7a7870;
+      --skull: #e8e0d0;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Syne', sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* ─── NOISE OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.03;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    /* ─── BACKGROUND GLOWS ─── */
+    .bg-glow {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .bg-glow-1 { width: 600px; height: 600px; background: rgba(255,107,26,0.08); top: -200px; left: -100px; animation: drift1 12s ease-in-out infinite alternate; }
+    .bg-glow-2 { width: 400px; height: 400px; background: rgba(0,212,255,0.05); bottom: 100px; right: -100px; animation: drift2 15s ease-in-out infinite alternate; }
+    @keyframes drift1 { to { transform: translate(60px, 80px); } }
+    @keyframes drift2 { to { transform: translate(-40px, -60px); } }
+
+    /* ─── HEADER ─── */
+    header {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 80px 24px 60px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-tag {
+      display: inline-block;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      color: var(--orange);
+      background: rgba(255,107,26,0.08);
+      border: 1px solid rgba(255,107,26,0.25);
+      padding: 6px 16px;
+      border-radius: 2px;
+      margin-bottom: 28px;
+      animation: fadeDown 0.6s ease both;
+    }
+
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(56px, 10vw, 120px);
+      line-height: 0.92;
+      letter-spacing: 0.02em;
+      animation: fadeDown 0.8s 0.1s ease both;
+    }
+
+    h1 .line-orange { color: var(--orange); }
+    h1 .line-cyan { color: var(--cyan); }
+    h1 .line-skull { color: var(--skull); }
+
+    .header-sub {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 24px;
+      letter-spacing: 0.05em;
+      animation: fadeDown 0.8s 0.25s ease both;
+    }
+
+    /* ─── SECTION TITLES ─── */
+    .section-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 5vw, 56px);
+      letter-spacing: 0.03em;
+      line-height: 1;
+      margin-bottom: 40px;
+    }
+
+    /* ─── LAYOUT ─── */
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 10;
+    }
+
+    section { padding: 80px 0; }
+    section + section { border-top: 1px solid var(--border); }
+
+    /* ─── TUTORIALS GRID ─── */
+    .tutorials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2px;
+    }
+
+    .tutorial-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 28px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s;
+      animation: fadeUp 0.6s both;
+      text-decoration: none;
+      display: block;
+      color: inherit;
+    }
+
+    .tutorial-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,107,26,0.06), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .tutorial-card:hover { border-color: rgba(255,107,26,0.4); transform: translateY(-3px); }
+    .tutorial-card:hover::before { opacity: 1; }
+
+    .card-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 52px;
+      color: rgba(255,107,26,0.15);
+      line-height: 1;
+      margin-bottom: 12px;
+      transition: color 0.3s;
+    }
+
+    .tutorial-card:hover .card-num { color: rgba(255,107,26,0.35); }
+
+    .card-creator {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.04em;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .card-yt-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 2px;
+      margin-bottom: 16px;
+    }
+
+    .card-yt-badge svg { width: 12px; height: 12px; fill: #ff4444; }
+
+    .card-watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--orange);
+      letter-spacing: 0.08em;
+      transition: gap 0.2s;
+    }
+
+    .tutorial-card:hover .card-watch { gap: 12px; }
+
+    /* ─── RESOURCES GRID ─── */
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .resource-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 24px;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.2s;
+      animation: fadeUp 0.6s both;
+    }
+
+    .resource-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      transition: background 0.3s;
+    }
+
+    .resource-card.yellow::after { background: var(--orange2); }
+    .resource-card.green::after  { background: #22c55e; }
+    .resource-card.orange::after { background: var(--orange); }
+    .resource-card.blue::after   { background: var(--cyan); }
+
+    .resource-card:hover { border-color: rgba(255,255,255,0.15); transform: translateY(-2px); }
+
+    .resource-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-bottom: 14px;
+      box-shadow: 0 0 8px currentColor;
+    }
+
+    .resource-dot.yellow { background: var(--orange2); color: var(--orange2); }
+    .resource-dot.green  { background: #22c55e; color: #22c55e; }
+    .resource-dot.orange { background: var(--orange); color: var(--orange); }
+    .resource-dot.blue   { background: var(--cyan); color: var(--cyan); }
+
+    .resource-title {
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .resource-desc {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+
+    .resource-link {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: var(--orange);
+      letter-spacing: 0.08em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ─── COMMUNITY STRIP ─── */
+    .community-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .community-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      padding: 14px 22px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 700;
+      transition: border-color 0.2s, background 0.2s;
+      letter-spacing: 0.03em;
+    }
+
+    .community-link:hover { border-color: rgba(255,107,26,0.5); background: rgba(255,107,26,0.05); }
+
+    .community-link svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 24px;
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    .footer-skull {
+      font-size: 28px;
+      display: block;
+      margin-bottom: 12px;
+      animation: bob 3s ease-in-out infinite;
+    }
+
+    @keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+
+    .footer-text {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    .footer-brand {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 15px;
+      letter-spacing: 0.1em;
+      color: var(--orange);
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes fadeUp   { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+
+    .tutorial-card:nth-child(1) { animation-delay: 0.05s; }
+    .tutorial-card:nth-child(2) { animation-delay: 0.12s; }
+    .tutorial-card:nth-child(3) { animation-delay: 0.19s; }
+    .tutorial-card:nth-child(4) { animation-delay: 0.26s; }
+    .tutorial-card:nth-child(5) { animation-delay: 0.33s; }
+    .tutorial-card:nth-child(6) { animation-delay: 0.40s; }
+    .tutorial-card:nth-child(7) { animation-delay: 0.47s; }
+    .tutorial-card:nth-child(8) { animation-delay: 0.54s; }
+
+    .resource-card:nth-child(1) { animation-delay: 0.1s; }
+    .resource-card:nth-child(2) { animation-delay: 0.2s; }
+    .resource-card:nth-child(3) { animation-delay: 0.3s; }
+    .resource-card:nth-child(4) { animation-delay: 0.4s; }
+
+    /* ─── TICKER ─── */
+    .ticker-wrap {
+      overflow: hidden;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      padding: 10px 0;
+      margin-bottom: 0;
+    }
+
+    .ticker {
+      display: flex;
+      gap: 60px;
+      animation: ticker 25s linear infinite;
+      white-space: nowrap;
+    }
+
+    .ticker-item {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 14px;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .ticker-item span { color: var(--orange); }
+
+    @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 640px) {
+      .tutorials-grid { grid-template-columns: 1fr; }
+      .resources-grid { grid-template-columns: 1fr; }
+      section { padding: 56px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+
+  <!-- ─── HEADER ─── -->
+  <header>
+    <div class="header-tag">☠️ CURATED RESOURCE HUB · 2026</div>
+    <h1>
+      <span class="line-orange">BEST</span><br>
+      <span class="line-skull">CLAUDE AI</span><br>
+      <span class="line-cyan">TUTORIALS</span><br>
+      <span style="font-size:0.7em;color:var(--muted);">ON YOUTUBE 🥶</span>
+    </h1>
+    <p class="header-sub">// 8 CREATORS · 4 RESOURCES · 1 OBSESSION</p>
+  </header>
+
+  <!-- ─── TICKER ─── -->
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <div class="ticker-item">NISHANT CHAHAR <span>◆</span></div>
+      <div class="ticker-item">ISHAN SHARMA <span>◆</span></div>
+      <div class="ticker-item">NICK SARAEV <span>◆</span></div>
+      <div class="ticker-item">NATE HERK <span>◆</span></div>
+      <div class="ticker-item">VIVEK MISHRA <span>◆</span></div>
+      <div class="ticker-item">AI FOUNDATIONS <span>◆</span></div>
+      <div class="ticker-item">MAYANK AGGARWAL <span>◆</span></div>
+      <div class="ticker-item">TRIGGERXAI <span>◆</span></div>
+      <div class="ticker-item">NISHANT CHAHAR <span>◆</span></div>
+      <div class="ticker-item">ISHAN SHARMA <span>◆</span></div>
+      <div class="ticker-item">NICK SARAEV <span>◆</span></div>
+      <div class="ticker-item">NATE HERK <span>◆</span></div>
+      <div class="ticker-item">VIVEK MISHRA <span>◆</span></div>
+      <div class="ticker-item">AI FOUNDATIONS <span>◆</span></div>
+      <div class="ticker-item">MAYANK AGGARWAL <span>◆</span></div>
+      <div class="ticker-item">TRIGGERXAI <span>◆</span></div>
+    </div>
+  </div>
+
+  <!-- ─── TUTORIALS SECTION ─── -->
+  <section>
+    <div class="container">
+      <div class="section-label">// 01 — TOP CREATORS</div>
+      <div class="section-title">YOUTUBE TUTORIALS</div>
+
+      <div class="tutorials-grid">
+
+        <a class="tutorial-card" href="https://youtu.be/5oSTAYmzVVk?si=PHAjJ610JRw1ELfs" target="_blank" rel="noopener">
+          <div class="card-num">01</div>
+          <div class="card-yt-badge">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            YOUTUBE
+          </div>
+          <div class="card-creator">Nishant Chahar</div>
+          <div class="card-watch">WATCH NOW →</div>
+        </a>
+
+        <a class="tutorial-card" href="https://youtu.be/9FDdQs3AH58?si=t0lZ8ZN8ufiq2YiI" target="_blank" rel="noopener">
+          <div class="card-num">02</div>
+          <div class="card-yt-badge">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            YOUTUBE
+          </div>
+          <div class="card-creator">Ishan Sharma</div>
+          <div class="card-watch">WATCH NOW →</div>
+        </a>
+
+        <a class="tutorial-card" href="https://youtu.be/EsTrWCV0Ph4?si=e2Z_2bm2TJMAnLdU" target="_blank" rel="noopener">
+          <div class="card-num">03</div>
+          <div class="card-yt-badge">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            YOUTUBE
+          </div>
+          <div class="card-creator">Nick Saraev</div>
+          <div class="card-watch">WATCH NOW →</div>
+        </a>
+
+        <a class="tutorial-card" href="https://youtu.be/QoQBzR1NIqI?si=x9xdYugMFDIJJBkA" target="_blank" rel="noopener">
+          <div class="card-num">04</div>
+          <div class="card-yt-badge">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            YOUTUBE
+          </div>
+          <div class="card-creator">Nick Saraev</div>
+          <div class="card-watch">WATCH NOW →</div>
+        </a>
+
+        <a class="tutorial-card" href="https://youtu.be/mpALXah_PBg?si=isFjP50aV_BlADTD" target="_blank" rel="noopener">
+          <div class="card-num">05</div>
+          <div class="card-yt-badge">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            YOUTUBE
+          </div>
+          <div class="card-creator">Nate Herk | AI Automation</div>
+          <div class="card-watch">WATCH NOW →</div>
+        </a>
+
+        <a class="tutorial-card" href="https://www.youtube.com/watch?v=erjhvDCg5po" target="_blank" rel="noopener">
+          <div class="card-num">06</div>
+          <div class="card-yt-badge">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            YOUTUBE
+          </div>
+          <div class="card-creator">Vivek Mishra</div>
+          <div class="card-watch">WATCH NOW →</div>
+        </a>
+
+        <a class="tutorial-card" href="https://youtu.be/rRrBbyv3ChM?si=hnzjuyA5rtV4JlHa" target="_blank" rel="noopener">
+          <div class="card-num">07</div>
+          <div class="card-yt-badge">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            YOUTUBE
+          </div>
+          <div class="card-creator">AI Foundations</div>
+          <div class="card-watch">WATCH NOW →</div>
+        </a>
+
+        <a class="tutorial-card" href="https://youtu.be/05aY2LRIC3s?si=HmXDvnazfvA4bQMB" target="_blank" rel="noopener">
+          <div class="card-num">08</div>
+          <div class="card-yt-badge">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            YOUTUBE
+          </div>
+          <div class="card-creator">Mayank Aggarwal</div>
+          <div class="card-watch">WATCH NOW →</div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── RESOURCES SECTION ─── -->
+  <section>
+    <div class="container">
+      <div class="section-label">// 02 — EXCLUSIVE DROPS</div>
+      <div class="section-title">MY RESOURCES ☠️</div>
+
+      <div class="resources-grid">
+
+        <a class="resource-card yellow" href="https://adityadasn8n.gumroad.com/l/krjflu" target="_blank" rel="noopener">
+          <span class="resource-dot yellow"></span>
+          <div class="resource-title">🟡 Claude AI Prompt Library</div>
+          <div class="resource-desc">105 Power Prompts Across<br>7 Categories</div>
+          <div class="resource-link">GET IT NOW →</div>
+        </a>
+
+        <a class="resource-card green" href="https://adityadasn8n.gumroad.com/l/pqprqu" target="_blank" rel="noopener">
+          <span class="resource-dot green"></span>
+          <div class="resource-title">🟢 33 Claude AI Skills</div>
+          <div class="resource-desc">Most Exclusive MCPs &amp;<br>Repos Collection</div>
+          <div class="resource-link">GET IT NOW →</div>
+        </a>
+
+        <a class="resource-card orange" href="https://adityadasn8n.gumroad.com/l/lkhtxb" target="_blank" rel="noopener">
+          <span class="resource-dot orange"></span>
+          <div class="resource-title">🟠 100 Claude Secret Codes</div>
+          <div class="resource-desc">Codes That Change How<br>You Use AI Forever</div>
+          <div class="resource-link">GET IT NOW →</div>
+        </a>
+
+        <a class="resource-card blue" href="https://adityadasn8n.gumroad.com/l/claude-ai" target="_blank" rel="noopener">
+          <span class="resource-dot blue"></span>
+          <div class="resource-title">🔵 10 Ways to Make Money</div>
+          <div class="resource-desc">With Claude AI in 2026 —<br>Actionable Blueprint</div>
+          <div class="resource-link">GET IT NOW →</div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── COMMUNITY SECTION ─── -->
+  <section>
+    <div class="container">
+      <div class="section-label">// 03 — FIND US</div>
+      <div class="section-title">JOIN THE COMMUNITY</div>
+
+      <div class="community-strip">
+
+        <a class="community-link" href="https://triggerxai.com/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          📍 TriggerXAI Website
+        </a>
+
+        <a class="community-link" href="https://www.youtube.com/@aditya-ai-bangla" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="#ff4444"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          YouTube Channel
+        </a>
+
+        <a class="community-link" href="https://chat.whatsapp.com/CICAFCGwXLaEv33MaZ9trc" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          WhatsApp Community
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <span class="footer-skull">☠️</span>
+    <div class="footer-text">CURATED BY <span class="footer-brand">TRIGGERXAI.COM</span> · ADITYA AI BANGLA</div>
+    <div class="footer-text" style="margin-top:8px;opacity:0.5;">Claude AI · 2026 · All links open on YouTube</div>
+  </footer>
+
+</body>
+</html>
