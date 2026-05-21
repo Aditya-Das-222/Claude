@@ -195,7 +195,7 @@
     /* ─── TUTORIALS GRID ─── */
     .tutorials-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 24px;
     }
 
@@ -214,17 +214,22 @@
       box-shadow: 0 12px 24px rgba(0,0,0,0.12);
     }
 
-    .card-header {
-      background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
-      height: 160px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: flex-start;
-      padding: 24px;
-      font-size: 48px;
-      font-weight: 800;
-      color: rgba(0,0,0,0.1);
-      font-family: 'Inter', sans-serif;
+    .card-video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      background: #000;
+      overflow: hidden;
+      border-radius: 12px 12px 0 0;
+    }
+
+    .card-video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
     }
 
     .card-content {
@@ -502,8 +507,11 @@
       </div>
 
       <div class="tutorials-grid">
-        <a class="tutorial-card" href="https://youtu.be/5oSTAYmzVVk" target="_blank">
-          <div class="card-header">01</div>
+        <!-- Tutorial 1: Nishant Chahar -->
+        <div class="tutorial-card">
+          <div class="card-video-wrapper">
+            <iframe src="https://www.youtube.com/embed/5oSTAYmzVVk" allowfullscreen="" loading="lazy"></iframe>
+          </div>
           <div class="card-content">
             <div class="card-badge">
               <span style="color: #ff4444;">●</span>
@@ -512,10 +520,13 @@
             <div class="card-creator">Nishant Chahar</div>
             <div class="card-cta">WATCH NOW →</div>
           </div>
-        </a>
+        </div>
 
-        <a class="tutorial-card" href="https://youtu.be/9FDdQs3AH58" target="_blank">
-          <div class="card-header">02</div>
+        <!-- Tutorial 2: Ishan Sharma -->
+        <div class="tutorial-card">
+          <div class="card-video-wrapper">
+            <iframe src="https://www.youtube.com/embed/9FDdQs3AH58" allowfullscreen="" loading="lazy"></iframe>
+          </div>
           <div class="card-content">
             <div class="card-badge">
               <span style="color: #ff4444;">●</span>
@@ -524,10 +535,13 @@
             <div class="card-creator">Ishan Sharma</div>
             <div class="card-cta">WATCH NOW →</div>
           </div>
-        </a>
+        </div>
 
-        <a class="tutorial-card" href="https://youtu.be/EsTrWCV0Ph4" target="_blank">
-          <div class="card-header">03</div>
+        <!-- Tutorial 3: Nick Saraev -->
+        <div class="tutorial-card">
+          <div class="card-video-wrapper">
+            <iframe src="https://www.youtube.com/embed/EsTrWCV0Ph4" allowfullscreen="" loading="lazy"></iframe>
+          </div>
           <div class="card-content">
             <div class="card-badge">
               <span style="color: #ff4444;">●</span>
@@ -536,10 +550,13 @@
             <div class="card-creator">Nick Saraev</div>
             <div class="card-cta">WATCH NOW →</div>
           </div>
-        </a>
+        </div>
 
-        <a class="tutorial-card" href="https://youtu.be/QoQBzR1NIqI" target="_blank">
-          <div class="card-header">04</div>
+        <!-- Tutorial 4: Nick Saraev (2) -->
+        <div class="tutorial-card">
+          <div class="card-video-wrapper">
+            <iframe src="https://www.youtube.com/embed/QoQBzR1NIqI" allowfullscreen="" loading="lazy"></iframe>
+          </div>
           <div class="card-content">
             <div class="card-badge">
               <span style="color: #ff4444;">●</span>
@@ -548,10 +565,13 @@
             <div class="card-creator">Nick Saraev</div>
             <div class="card-cta">WATCH NOW →</div>
           </div>
-        </a>
+        </div>
 
-        <a class="tutorial-card" href="https://youtu.be/mpALXah_PBg" target="_blank">
-          <div class="card-header">05</div>
+        <!-- Tutorial 5: Nate Herk -->
+        <div class="tutorial-card">
+          <div class="card-video-wrapper">
+            <iframe src="https://www.youtube.com/embed/mpALXah_PBg" allowfullscreen="" loading="lazy"></iframe>
+          </div>
           <div class="card-content">
             <div class="card-badge">
               <span style="color: #ff4444;">●</span>
@@ -560,10 +580,13 @@
             <div class="card-creator">Nate Herk</div>
             <div class="card-cta">WATCH NOW →</div>
           </div>
-        </a>
+        </div>
 
-        <a class="tutorial-card" href="https://www.youtube.com/watch?v=erjhvDCg5po" target="_blank">
-          <div class="card-header">06</div>
+        <!-- Tutorial 6: Vivek Mishra -->
+        <div class="tutorial-card">
+          <div class="card-video-wrapper">
+            <iframe src="https://www.youtube.com/embed/erjhvDCg5po" allowfullscreen="" loading="lazy"></iframe>
+          </div>
           <div class="card-content">
             <div class="card-badge">
               <span style="color: #ff4444;">●</span>
@@ -572,10 +595,13 @@
             <div class="card-creator">Vivek Mishra</div>
             <div class="card-cta">WATCH NOW →</div>
           </div>
-        </a>
+        </div>
 
-        <a class="tutorial-card" href="https://youtu.be/rRrBbyv3ChM" target="_blank">
-          <div class="card-header">07</div>
+        <!-- Tutorial 7: AI Foundations -->
+        <div class="tutorial-card">
+          <div class="card-video-wrapper">
+            <iframe src="https://www.youtube.com/embed/rRrBbyv3ChM" allowfullscreen="" loading="lazy"></iframe>
+          </div>
           <div class="card-content">
             <div class="card-badge">
               <span style="color: #ff4444;">●</span>
@@ -584,10 +610,13 @@
             <div class="card-creator">AI Foundations</div>
             <div class="card-cta">WATCH NOW →</div>
           </div>
-        </a>
+        </div>
 
-        <a class="tutorial-card" href="https://youtu.be/05aY2LRIC3s" target="_blank">
-          <div class="card-header">08</div>
+        <!-- Tutorial 8: Mayank Aggarwal -->
+        <div class="tutorial-card">
+          <div class="card-video-wrapper">
+            <iframe src="https://www.youtube.com/embed/05aY2LRIC3s" allowfullscreen="" loading="lazy"></iframe>
+          </div>
           <div class="card-content">
             <div class="card-badge">
               <span style="color: #ff4444;">●</span>
@@ -596,7 +625,7 @@
             <div class="card-creator">Mayank Aggarwal</div>
             <div class="card-cta">WATCH NOW →</div>
           </div>
-        </a>
+        </div>
       </div>
     </div>
   </section>
